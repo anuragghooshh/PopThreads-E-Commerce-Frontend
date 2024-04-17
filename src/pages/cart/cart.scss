@@ -1,0 +1,17 @@
+.cartControls{
+    >div{
+        display: flex;
+        align-items: center;
+
+        p{
+            font-size: var(--Small);
+            color: var(--Dark);
+            font-family: var(--subFont);
+        }
+
+        >div{
+            display: flex;
+            gap: 40px;
+        }
+    }
+}

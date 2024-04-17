@@ -1,0 +1,125 @@
+.navBar{
+    height: var(--navHeight);
+    min-width: 100%;
+    position: sticky;
+    z-index: 100;
+    top: calc(var(--navHeight) * -1);
+    left: 0;
+    border-bottom: 1px solid var(--light);
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    a,button,input{
+        text-decoration: none;
+        color: var(--light);
+        font-family: var(--subFont);
+        font-size: var(--Tiny);        
+    }
+    button{
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background: none;
+    }
+
+    >div{
+        width: 100%;
+        padding: 0 var(--margin);
+    }
+
+    // a::after{
+    //     --size : 5px;
+    //     content: '';
+    //     width: var(--size);
+    //     height: var(--size);
+    //     position: absolute;
+    //     background-color: var(--light);
+    //     bottom: calc(var(--size) * -1);
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    //     border-radius: 50%;
+    //     display: none;
+    // }
+
+    .top{
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--secondary);
+
+        .logo{
+            height: fit-content;
+            
+            img{
+                width: 86px;
+            }
+        }
+        >div{
+            display: flex;
+            align-items: center;
+            gap: 40px;
+
+            .searchBar{
+                height: 48px;
+                width: 400px;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                background-color: var(--light);
+                border-radius: 25px;
+                padding: 10px 20px;
+
+                input{
+                    width: 100%;
+                    background : none;
+                    border: none;
+                    outline: none;
+                    color: var(--dark);
+                }
+
+                img{
+                    width: 24px;
+                }
+            }
+
+            .links{
+                display: flex;
+                gap: 40px;
+                
+                a{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+        }
+    }
+    .bottom{
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--primary);
+
+        >div{
+            display: flex;
+            gap: 20px;
+        }
+    }
+}
+
+.navBar.visible{
+    top: 0;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@media(hover:hover){
+    .navBar{
+        a{
+            position: relative;
+        }
+        a:hover::after{
+            display: block;
+        }
+    }
+}
