@@ -1,0 +1,96 @@
+.cartItem{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid var(--gray);
+
+    >div{
+        display: flex;
+        gap: 20px;
+    }
+
+    .flexbox{
+        display: flex;
+        flex-direction: column;
+
+        .top{
+            h4{
+                font-family: var(--font);
+                font-size: var(--SubPageHeading);
+                font-weight: lighter;
+            }
+            >div{
+                display: flex;
+                gap: 10px;
+                font-family: var(--subFont);
+                font-size: var(--Small);
+                align-items: center;
+                color: var(--dark);
+
+                >:first-child{
+                    color: var(--gray);
+                }
+                
+                >div{
+                    padding: 5px 20px;
+                    background-color: var(--tertiary);
+                    border-radius: 40px;
+                    
+                    p{
+                        font-size: var(--Tiny);
+                    }
+                }
+            }
+        }
+
+        .bottom{
+            display: flex;
+            gap: 20px;
+        }
+    }
+
+    .close{
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.imgChck {
+    width: 138px;
+    height: 170px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+
+    input[type="checkbox"] {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 4;
+        width: 20px;
+        height: 20px;
+    }
+      
+    div{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+    .gradient{
+        z-index: 3;
+        background-image: linear-gradient(145deg, #00000096,#00000000,#00000000, #00000000,);
+    }
+    .thumbnail{
+        z-index: 2;
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+
