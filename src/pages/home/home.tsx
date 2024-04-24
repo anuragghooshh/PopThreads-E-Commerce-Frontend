@@ -1,6 +1,5 @@
 import Button from '../../components/button/button';
 import ItemCard from '../../components/itemCard/itemCard';
-import Newsletter from '../../components/newsletter/newsletter';
 
 import home2_1 from '../../assets/images/hero2 (1).jpg';
 import home2_2 from '../../assets/images/hero2 (2).jpg';
@@ -13,9 +12,18 @@ import home3_3 from '../../assets/images/hero1 (3).jpg';
 
 
 import './home.scss';
-import SpecialItems from '../../components/specialProducts/specialItems';
+import SpecialItems from '../../components/specialtems/specialItems';
+import { useContext, useEffect, useState } from 'react';
+import NavContext from '../../contexts/navContext';
 
 const Home = () => {
+  const [top, setTop] = useState<number>(0);
+  const {navPos} = useContext(NavContext);
+
+  useEffect(()=>{
+    setTop(navPos);
+    console.log("top :" + top)
+  },[navPos]);
 
   return (
     <div className='page' id='home'>
@@ -73,7 +81,10 @@ const Home = () => {
         />
       </section>
       <section className='section' id='home2'>
-        <p>Crafted with Care: Our clothes<br />Reflect Quality, Style and Passion.</p>
+        <p
+          className={top >= -20 ? 'adjust' : ''} 
+        >
+          Crafted with Care: Our clothes<br />Reflect Quality, Style and Passion.</p>
         <div>
           <div>
             <div style={{ backgroundImage: `url('${home2_1}')`}} />

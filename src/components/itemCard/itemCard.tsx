@@ -4,6 +4,8 @@ import star from '../../assets/icons/RatingStar.svg';
 import heart from '../../assets/icons/heartFilled.svg';
 import close from '../../assets/icons/Cross.svg';
 import Button from '../button/button';
+import { useContext } from 'react';
+import CartContext from '../../contexts/cartContext';
 
 interface Props {
   prodName: string,
@@ -13,10 +15,18 @@ interface Props {
   prodReviews: number,
   colors: string[],
   sizes: string[],
-  type:string
+  type: string
 }
 
 const ItemCard = (props: Props) => {
+  let { items, setItems, setItemCount } = useContext(CartContext);
+
+  const addToCart = () => {
+    const updatedItems = [...items, "productID"];
+    setItems(updatedItems);
+    setItemCount(items.length + 1);
+  }
+
   return (
     <div className='itemCard'>
       <div className="imagery">
@@ -28,12 +38,12 @@ const ItemCard = (props: Props) => {
               </div>
               {
                 props.type == 'default' ?
-                <button className='itemBtn'>
-                  <img src={heart} alt="" />
-                </button> :
-                <button className='itemBtn'>
-                  <img src={close} alt="" />
-                </button>
+                  <button className='itemBtn'>
+                    <img src={heart} alt="" />
+                  </button> :
+                  <button className='itemBtn'>
+                    <img src={close} alt="" />
+                  </button>
               }
             </div>
             <div>
@@ -56,6 +66,7 @@ const ItemCard = (props: Props) => {
               type='filled'
               text='Add to Cart'
               color='dark'
+              onClick={addToCart}
             />
           </div>
         </div>
@@ -68,13 +79,13 @@ const ItemCard = (props: Props) => {
         <div className="bottom">
           <div className="sizeColors">
             <div className="colors">
-              {props.colors.map(color => (
-                <div className='color' style={{ backgroundColor: color }} />
+              {props.colors.map((color,index) => (
+                <div className='color' key={index} style={{ backgroundColor: color }} />
               ))}
             </div>
             <div className="sizes">
-              {props.sizes.map(size => (
-                <p className='size'>{size}</p>
+              {props.sizes.map((size, index) => (
+                <p className='size' key={index}>{size}</p>
               ))}
             </div>
           </div>

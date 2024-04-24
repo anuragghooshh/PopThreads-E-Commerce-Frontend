@@ -1,11 +1,16 @@
+import { useContext } from 'react'
 import Button from '../../components/button/button'
-import CartItem from '../../components/cartItem/cartItem'
 import InputAndButton from '../../components/inputAndButton/inputAndButton'
 import ItemCard from '../../components/itemCard/itemCard'
-import SpecialItems from '../../components/specialProducts/specialItems'
+import SpecialItems from '../../components/specialtems/specialItems'
 import './cart.scss'
+import CartContext from '../../contexts/cartContext'
+import CartItem from '../../components/cartItem/cartItem'
 
 const Cart = () => {
+
+  const { items } = useContext(CartContext);
+
   return (
     <div className='page' id='cart'>
       <div className="section">
@@ -29,16 +34,19 @@ const Cart = () => {
         </div>
         <div className="flexbox">
           <div className="left">
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
+            {items.map((item, index) => (
+              <CartItem
+                key={index}
+                prodName={item}
+                prodPrice={5000}
+                prodActPrice={7000}
+                prodRating={5}
+                prodReviews={14}
+                type='men'
+                colors={["Red","Blue","Yellow"]}
+                sizes={["L","M","XL"]}
+              />
+            ))}
           </div>
           <div className="right">
             <div className="addressPreview">

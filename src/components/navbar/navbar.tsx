@@ -6,11 +6,14 @@ import cart from '../../assets/icons/Cart.svg';
 import profile from '../../assets/icons/Profile.svg';
 import favorite from '../../assets/icons/Heart.svg';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import CartContext from '../../contexts/cartContext';
+import NavContext from '../../contexts/navContext';
 
 
 const Navbar = () => {
   const [show, setShow] = useState(true);
+  const { itemCount } = useContext(CartContext);
 
   useEffect(() => {
     let previousScrollPosition = 0;
@@ -18,23 +21,43 @@ const Navbar = () => {
 
     window.addEventListener('scroll', function (e) {
 
-      // Get the new Value
       currentScrollPosition = window.scrollY;
 
-      //Subtract the two and conclude
       if (previousScrollPosition - currentScrollPosition < 0) {
         setShow(false);
       } else if (previousScrollPosition - currentScrollPosition > 0) {
         setShow(true);
       }
 
-      // Update the previous value
       previousScrollPosition = currentScrollPosition;
     });
   }, []);
 
+  const myRef = useRef<HTMLDivElement | null>(null);
+  const { setNavPos } = useContext(NavContext);
+
+  useEffect(() => {
+    const updatePosition = () => {
+      if (myRef.current) {
+        const rect = myRef.current.getBoundingClientRect();
+        const curPos = Math.round(rect.top);
+        setNavPos(curPos);
+      }
+    };
+
+    window.addEventListener('resize', updatePosition);
+    window.addEventListener('scroll', updatePosition);
+
+    updatePosition();
+
+    return () => {
+      window.removeEventListener('resize', updatePosition);
+      window.removeEventListener('scroll', updatePosition);
+    };
+  }, []);
+
   return (
-    <nav className={`navBar ${show && 'visible'}`}>
+    <nav className={`navBar ${show && 'visible'}`} ref={myRef}>
       <div className='top'>
         <Link to="/" className='logo'>
           <img src={logo} alt="" className='logo' />
@@ -57,7 +80,10 @@ const Navbar = () => {
               <p>Profile</p>
             </Link>
             <Link to="/cart">
-              <img src={cart} alt="" />
+              <div className="cartBtn">
+                <img src={cart} alt="" />
+                <span className="count">{itemCount}</span>
+              </div>
               <p>Cart</p>
             </Link>
           </div>

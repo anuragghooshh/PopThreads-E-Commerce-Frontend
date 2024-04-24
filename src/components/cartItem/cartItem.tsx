@@ -2,7 +2,18 @@ import './cartItem.scss';
 import close from '../../assets/icons/Cross.svg'
 import CartDropdown from '../cartDropdown/cartDropdown';
 
-const CartItem = () => {
+interface Props {
+  prodName: string;
+  prodPrice: number;
+  prodActPrice: number;
+  prodRating: number;
+  prodReviews: number;
+  colors: string[];
+  sizes: string[];
+  type: string;
+}
+
+const CartItem = (props:Props) => {
   return (
     <div className='cartItem'>
       <div className="">
@@ -18,10 +29,10 @@ const CartItem = () => {
         </div>
         <div className="flexbox">
           <div className="top">
-            <h4>Product Name</h4>
+            <h4>{props.prodName}</h4>
             <div>
-              <p className="actlPrice">Rs.XXX</p>
-              <p className="discntPrice">Rs.XXX</p>
+              <p className="actlPrice">{props.prodActPrice}</p>
+              <p className="discntPrice">{props.prodPrice}</p>
               <div className="discnt">
                 <p>%Off</p>
               </div>

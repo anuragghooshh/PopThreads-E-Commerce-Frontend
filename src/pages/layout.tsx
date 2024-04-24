@@ -1,19 +1,23 @@
 import Footer from "../components/footer/footer";
 import Navbar from "../components/navbar/navbar";
 import Newsletter from "../components/newsletter/newsletter";
+import CartContextProvider from "../contexts/cartContextProvider";
+import NavContextProvider from "../contexts/navContextProvider";
 
 interface LayoutProps {
-    children: JSX.Element; // Define children as a single React element
+    children: JSX.Element;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (
-        <div>
-            <Navbar />
-            {children}
-            <Newsletter/>
-            <Footer />
-        </div>
+        <NavContextProvider>
+            <CartContextProvider>
+                <Navbar />
+                {children}
+                <Newsletter />
+                <Footer />
+            </CartContextProvider>
+        </NavContextProvider>
     );
 };
 

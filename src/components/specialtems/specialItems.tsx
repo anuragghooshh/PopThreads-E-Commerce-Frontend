@@ -11,7 +11,7 @@ const SpecialItems = (props:Props) => {
       <h2>{props.title}</h2>
       <div className="itemsHolder">
         {
-          props.items.map(item =>(
+          props.items.map((item) =>(
             <>{item}</>
           ))
         }

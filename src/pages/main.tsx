@@ -12,55 +12,55 @@ import Cart from './cart/cart.tsx';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout children={<Home />}/>,
+    element: <Layout children={<Home />} />,
   },
   {
     path: '/products/men',
-    element: <Layout children={<ProductCategory 
-      productCategoryName='Men' 
+    element: <Layout children={<ProductCategory
+      productCategoryName='Men'
       categoryDescr='Vorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. ' />}
     />,
   },
   {
     path: '/products/women',
-    element: <Layout children={<ProductCategory 
-      productCategoryName='Women' 
+    element: <Layout children={<ProductCategory
+      productCategoryName='Women'
       categoryDescr='Vorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. ' />}
     />,
   },
   {
     path: '/products/footwear',
-    element: <Layout children={<ProductCategory 
-      productCategoryName='Footwear' 
+    element: <Layout children={<ProductCategory
+      productCategoryName='Footwear'
       categoryDescr='Vorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. ' />}
     />,
   },
   {
     path: '/products/accessories',
-    element: <Layout children={<ProductCategory 
+    element: <Layout children={<ProductCategory
       productCategoryName='Accessories'
       categoryDescr='Vorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. ' />}
     />,
   },
   {
     path: '/profile',
-    element: <Layout children={<Profile/>}
+    element: <Layout children={<Profile />}
     />,
   },
   {
     path: '/favorites',
-    element: <Layout children={<Favorites/>}
+    element: <Layout children={<Favorites />}
     />,
   },
   {
     path: '/cart',
-    element: <Layout children={<Cart/>}
+    element: <Layout children={<Cart />}
     />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
