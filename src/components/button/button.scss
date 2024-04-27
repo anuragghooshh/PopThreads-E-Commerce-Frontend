@@ -16,7 +16,7 @@
 
     p{
         transform: translate3d(0,0,0);
-        transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition: var(--transition200ms);
     }
     p:last-child{
         position: absolute;
@@ -69,7 +69,7 @@
     .button.filled:hover,.button.stroked:hover{
         p{
             transform: translate3d(0,var(--negHeight),0) !important;
-            transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
+            transition: var(--transition200ms) !important;
         }
         p:last-child{
             transform: translate3d(0,0,0) !important;

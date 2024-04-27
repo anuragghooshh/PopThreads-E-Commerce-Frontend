@@ -1,7 +1,9 @@
+import { useContext, useEffect, useState } from 'react'
 import Button from '../../components/button/button'
 import Dropdown from '../../components/dropdown/dropdown'
 import ItemCard from '../../components/itemCard/itemCard'
 import './productCategory.scss'
+import NavContext from '../../contexts/navContext'
 
 interface Props {
     productCategoryName: string,
@@ -10,6 +12,13 @@ interface Props {
 }
 
 const ProductCategory = (props: Props) => {
+    const [top, setTop] = useState(0);
+    const { navPos } = useContext(NavContext);
+
+    useEffect(()=>{
+        setTop(navPos);
+    },[navPos])
+
     return (
         <div className="page" id="productCategory">
             <div className="categoryImg" />
@@ -31,7 +40,7 @@ const ProductCategory = (props: Props) => {
             </section>
             <section className="section" id="productsList">
                 <div
-                    className={`filters`}
+                    className={`filters ${top < -20 ? "adjust" : ""}`}
                 >
                     <div>
                         <Dropdown

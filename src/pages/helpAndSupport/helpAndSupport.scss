@@ -1,0 +1,48 @@
+#help-and-support{
+    p{
+        font-size: var(--Small);
+        font-family: var(--subFont);
+        font-weight: 400;
+    }
+
+    .faqs{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #help-and-support-intro{
+
+        p{
+            width: 60%;
+        }
+    }
+
+    #contact{
+
+        .mail{
+
+            a{
+                font-size: var(--PageHeading);
+                font-family: var(--font);
+                color: var(--dark);
+            }
+        }
+        .socials{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            >a{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                text-decoration: none;
+
+                p{
+                    color: var(--dark);
+                }
+            }
+        }
+    }
+}

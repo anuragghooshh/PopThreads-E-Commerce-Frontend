@@ -1,0 +1,13 @@
+.underline{
+    width: 100%;
+}
+
+.underline.Dark{
+    border-bottom: 1px solid var(--dark) !important;
+}
+.underline.Light{
+    border-bottom: 1px solid var(--light) !important;
+}
+.underline.Gray{
+    border-bottom: 1px solid var(--gray) !important;
+}

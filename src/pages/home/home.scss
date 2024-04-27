@@ -43,11 +43,11 @@
         color: var(--dak);
         font-weight: lighter;
         text-align: center;
-        transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition: var(--transition500ms);
     }
     p.adjust{
         top: var(--navHeight) !important;
-        transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition: var(--transition500ms);
     }
     >div{
         width: 100%;
@@ -94,5 +94,24 @@
         width: calc(100vw / 3);
         background-size: cover;
         background-position: center;
+    }
+}
+
+@media only screen and (max-width:480px){
+    #home2{
+        >div{
+            >div{
+                div{
+                    width: 120px;
+                    height: 145px;
+                }
+            }
+        }
+    }
+
+    #home3{    
+        >div{
+            height: calc(100vw / 2.5);
+        }
     }
 }

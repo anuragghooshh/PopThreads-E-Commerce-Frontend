@@ -1,65 +1,100 @@
-.navBar{
-    height: var(--navHeight);
+.navBar {
+    min-height: var(--navHeight);
     min-width: 100%;
     position: sticky;
     z-index: 100;
     top: calc(var(--navHeight) * -1);
     left: 0;
-    border-bottom: 1px solid var(--light);
-    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: var(--transition500ms);
 
-    a,button,input{
+    a,
+    button,
+    input {
         text-decoration: none;
         color: var(--light);
         font-family: var(--subFont);
-        font-size: var(--Tiny);        
+        font-size: var(--Tiny);
     }
-    button{
+
+    button {
         outline: none;
         border: none;
         cursor: pointer;
         background: none;
     }
 
-    >div{
+    >div {
         width: 100%;
         padding: 0 var(--margin);
     }
 
-    // a::after{
-    //     --size : 5px;
-    //     content: '';
-    //     width: var(--size);
-    //     height: var(--size);
-    //     position: absolute;
-    //     background-color: var(--light);
-    //     bottom: calc(var(--size) * -1);
-    //     left: 50%;
-    //     transform: translateX(-50%);
-    //     border-radius: 50%;
-    //     display: none;
-    // }
+    .searchBar {
+        --searchBarHeight : 48px;
+        height: var(--searchBarHeight);
+        width: 400px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background-color: var(--light);
+        border-radius: 25px;
+        padding: 10px 20px;
 
-    .top{
+        input {
+            width: 100%;
+            background: none;
+            border: none;
+            outline: none;
+            color: var(--dark);
+            font-size: var(--Tiny);
+        }
+
+        img {
+            width: 24px;
+        }
+    }
+
+    >.searchBar {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 0;
+        z-index: -1;
+        transition: var(--transition500ms);
+        box-shadow: 0 0 50px #00000000;
+
+        input {
+            font-size: var(--Medium);
+        }
+
+        &.active {
+            top: var(--navHeight);
+            box-shadow: 0 0 50px #0000005a;
+            transition: var(--transition500ms);
+        }
+    }
+
+    .top {
         height: 70px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: var(--secondary);
 
-        .logo{
+        .logo {
             height: fit-content;
-            
-            img{
+
+            img {
                 width: 86px;
             }
         }
-        >div{
+
+        >div {
             display: flex;
             align-items: center;
             gap: 40px;
 
-            .searchBar{
+            .searchBar {
                 height: 48px;
                 width: 400px;
                 display: flex;
@@ -69,33 +104,37 @@
                 border-radius: 25px;
                 padding: 10px 20px;
 
-                input{
+                input {
                     width: 100%;
-                    background : none;
+                    background: none;
                     border: none;
                     outline: none;
                     color: var(--dark);
                 }
 
-                img{
+                img {
                     width: 24px;
                 }
             }
 
-            .links{
+            .links,
+            .buttons {
                 display: flex;
                 gap: 40px;
-                
-                a{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                }
 
-                .cartBtn{
+                a,
+                button {
+                    display: grid;
+                    place-items: center;
+                }
+            }
+
+            .links {
+
+                .cartBtn {
                     position: relative;
 
-                    .count{
+                    .count {
                         position: absolute;
                         background-color: var(--tertiary);
                         padding: 1px 5px;
@@ -108,33 +147,133 @@
                     }
                 }
             }
+
+            .buttons {
+                display: none;
+            }
         }
     }
-    .bottom{
+
+    .bottom {
         height: 50px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: var(--primary);
 
-        >div{
+        >div {
             display: flex;
             gap: 20px;
         }
     }
+
+    .sideNav {
+        --width: 75dvw;
+        position: fixed;
+        top: 0;
+        left: calc(var(--width) * -1);
+        background-color: var(--dark);
+        height: 100dvh;
+        width: var(--width);
+        display: flex;
+        padding: 20px var(--margin);
+        flex-direction: column;
+        justify-content: space-between;
+        transition: var(--transition500ms);
+        
+
+        >div {
+
+            div,
+            & {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            a,
+            button {
+                font-size: var(--Medium);
+                text-align: left;
+            }
+        }
+
+        &.active {
+            left: 0 !important;
+            transition: var(--transition500ms);
+        }
+    }
+
+    &.visible{
+        top: 0;
+        transition: var(--transition500ms);
+    }
 }
 
-.navBar.visible{
-    top: 0;
-    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-@media(hover:hover){
+@media only screen and (max-width:768px){
+    .searchBar{
+        display: none !important;
+        --searchBarHeight : 70px !important;
+    }
     .navBar{
-        a{
+        .logo{
+            img{
+                width: 60px !important;
+            }
+        }
+
+        >.searchBar {
+            display: flex !important;
+        }
+    }
+    .buttons{
+        display: flex !important;
+    }
+    #ham{
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .searchBar {
+        --searchBarHeight : var(--navHeight) !important;
+        display: none !important;
+    }
+
+    .navBar {
+        .top{
+            height: var(--navHeight) !important;
+        }
+
+        >.searchBar {
+            display: flex !important;
+            height: var(--navHeight) !important;
+        }
+    }
+
+    .bottom {
+        display: none !important;
+    }
+
+    .links {
+        display: none !important;
+    }
+
+    .buttons {
+        display: flex !important;
+    }
+    #ham{
+        display: block !important;
+    }
+}
+
+@media(hover:hover) {
+    .navBar {
+        a {
             position: relative;
         }
-        a:hover::after{
+
+        a:hover::after {
             display: block;
         }
     }

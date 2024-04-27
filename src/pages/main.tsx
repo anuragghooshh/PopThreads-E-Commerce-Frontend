@@ -8,6 +8,7 @@ import ProductCategory from './productCategory/productCategory.tsx';
 import Profile from './profile/profile.tsx';
 import Favorites from './favorites/favorites.tsx';
 import Cart from './cart/cart.tsx';
+import HelpAndSupport from './helpAndSupport/helpAndSupport.tsx';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
     element: <Layout children={<Cart />}
     />,
   },
+  {
+    path: '/help-and-support',
+    element: <Layout children={<HelpAndSupport />} />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

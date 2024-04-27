@@ -8,7 +8,7 @@ interface Props{
 const SpecialItems = (props:Props) => {
   return (
     <div className='spclItems'>
-      <h2>{props.title}</h2>
+      <h3>{props.title}</h3>
       <div className="itemsHolder">
         {
           props.items.map((item) =>(

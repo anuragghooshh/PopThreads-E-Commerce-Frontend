@@ -34,8 +34,9 @@
         padding: 20px var(--margin);
         background-color: var(--primary);
         position: sticky;
-        top: 0;
+        top: var(--navHeight);
         z-index: +1;
+        transition: var(--transition500ms);
 
         >div{
             display: flex;
@@ -43,8 +44,9 @@
             gap: 20px;
         }
     }
-    .filters.isSticky{
-        background-color: green !important; 
+    .filters.adjust{
+        top: 0px; 
+        transition: var(--transition200ms);
     }
 
     .products{
