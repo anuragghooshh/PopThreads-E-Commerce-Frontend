@@ -82,15 +82,15 @@ h4{
 }
 
 // Tablet
-@media only screen and (max-width:768px){
+@media only screen and (max-width:821px){
     // typography
     :root{
-        --Display : 48px;
-        --PageHeading : 36px;
-        --SubPageHeading : 24px;
-        --Small : 18px;
-        --Medium : 14px;
-        --Tiny : 12px;
+        --Display : 3rem !important;
+        --PageHeading : 2.25rem !important;
+        --SubPageHeading : 1.5rem !important; 
+        --Small : 1.125rem !important;
+        --Medium : 0.875rem !important;
+        --Tiny : 0.75rem !important;
     }
 
     // margins
@@ -103,11 +103,11 @@ h4{
 @media only screen and (max-width:480px){
     // typography
     :root{
-        --Display : 24px;
-        --PageHeading : 18px;
-        --SubPageHeading : 24px;
-        --Small : 14px;
-        --Tiny : 12px;
+        --Display : 1.5rem !important;
+        --PageHeading : 1.125rem !important;
+        --SubPageHeading : 1.5rem !important;
+        --Small : 0.875rem !important;
+        --Tiny : 0.75rem !important;
     }
 
     // margins

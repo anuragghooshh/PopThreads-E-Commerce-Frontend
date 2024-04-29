@@ -79,7 +79,7 @@ const ItemCard = (props: Props) => {
         <div className="bottom">
           <div className="sizeColors">
             <div className="colors">
-              {props.colors.map((color,index) => (
+              {props.colors.map((color, index) => (
                 <div className='color' key={index} style={{ backgroundColor: color }} />
               ))}
             </div>
@@ -94,6 +94,19 @@ const ItemCard = (props: Props) => {
             <p>Rs.{props.prodPrice}</p>
           </div>
         </div>
+      </div>
+      <div className="hiddenBtnsContainer">
+        <Button
+          type='stroked'
+          text='Buy now'
+          color='dark'
+        />
+        <Button
+          type='filled'
+          text='Add to Cart'
+          color='dark'
+          onClick={addToCart}
+        />
       </div>
     </div>
   )

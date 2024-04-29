@@ -16,3 +16,19 @@
         flex-basis: 40%;
     }
 }
+
+@media only screen and (max-width:480px){
+    .inputAndBtn{
+        width: 100% !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        border: none !important;
+
+        input, .button{
+            flex-basis: auto !important;
+        }
+        input{
+            min-height: 50px !important;
+        }
+    }
+}

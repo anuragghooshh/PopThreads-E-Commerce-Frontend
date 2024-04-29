@@ -210,12 +210,13 @@
     }
 }
 
-@media only screen and (max-width:768px){
-    .searchBar{
-        display: none !important;
-        --searchBarHeight : 70px !important;
-    }
+@media only screen and (max-width:1024px){
     .navBar{
+        .searchBar{
+            display: none !important;
+            --searchBarHeight : 70px !important;
+        }
+
         .logo{
             img{
                 width: 60px !important;
@@ -225,22 +226,24 @@
         >.searchBar {
             display: flex !important;
         }
-    }
-    .buttons{
-        display: flex !important;
-    }
-    #ham{
-        display: none !important;
+
+        .buttons{
+            display: flex !important;
+        }
+        #ham{
+            display: none !important;
+        }
     }
 }
 
-@media only screen and (max-width:480px) {
-    .searchBar {
-        --searchBarHeight : var(--navHeight) !important;
-        display: none !important;
-    }
-
+@media only screen and (max-width:431px) {
     .navBar {
+
+        .searchBar {
+            --searchBarHeight : var(--navHeight) !important;
+            display: none !important;
+        }
+
         .top{
             height: var(--navHeight) !important;
         }
@@ -249,21 +252,21 @@
             display: flex !important;
             height: var(--navHeight) !important;
         }
-    }
 
-    .bottom {
-        display: none !important;
-    }
-
-    .links {
-        display: none !important;
-    }
-
-    .buttons {
-        display: flex !important;
-    }
-    #ham{
-        display: block !important;
+        .bottom {
+            display: none !important;
+        }
+    
+        .links {
+            display: none !important;
+        }
+    
+        .buttons {
+            display: flex !important;
+        }
+        #ham{
+            display: block !important;
+        }
     }
 }
 

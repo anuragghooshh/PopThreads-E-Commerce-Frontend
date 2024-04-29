@@ -3,7 +3,7 @@
     --negHeight : calc(var(--height) * -1);
     // min-width: 200px;
     font-size: var(--Small);
-    height: var(--height);
+    min-height: var(--height);
     padding: 0px 20px;
     border: 0;
     cursor: pointer;
@@ -63,6 +63,10 @@
     background: none;
     color: var(--primary);
     border: 2px solid var(--primary);
+}
+
+@media only screen and (max-width:480px){
+    
 }
 
 @media(hover:hover){

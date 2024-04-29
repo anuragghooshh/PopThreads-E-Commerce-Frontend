@@ -1,4 +1,4 @@
-.section.newsletter {
+.newsletter {
 
     >div {
         width: 100%;
@@ -33,6 +33,39 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+        }
+    }
+}
+
+@media only screen and (max-width:821px) {
+    .newsletter{
+        >div{
+            flex-direction: column-reverse !important;
+            >div{
+                flex-basis: auto !important;
+                height: auto !important;
+            }
+
+            .right{
+                width: 100% !important;
+                height: 100% !important;
+                aspect-ratio: 1 / 1 !important;
+            }
+
+            .left{
+                min-height: 340px !important;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .newsletter{
+        >div{
+            border-radius: 20px !important;
+        }
+        p{
+            text-align: center !important;
         }
     }
 }

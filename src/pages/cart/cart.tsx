@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Button from '../../components/button/button'
 import InputAndButton from '../../components/inputAndButton/inputAndButton'
 import ItemCard from '../../components/itemCard/itemCard'
@@ -6,10 +6,17 @@ import SpecialItems from '../../components/specialtems/specialItems'
 import './cart.scss'
 import CartContext from '../../contexts/cartContext'
 import CartItem from '../../components/cartItem/cartItem'
+import NavContext from '../../contexts/navContext'
 
 const Cart = () => {
-
+  const { navPos } = useContext(NavContext);
   const { items } = useContext(CartContext);
+
+  const [top, setTop] = useState(0);
+
+  useEffect(()=>{
+    setTop(navPos);
+  },[navPos]);
 
   return (
     <div className='page' id='cart'>
@@ -74,7 +81,7 @@ const Cart = () => {
               />
             </div>
 
-            <div className="breakup">
+            <div className={`breakup ${top >= -20 ? 'adjust' : ''}`}>
               <p>Price Details (1 item)</p>
               <table>
                 <tr>

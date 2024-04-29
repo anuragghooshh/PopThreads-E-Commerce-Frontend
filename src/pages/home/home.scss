@@ -1,10 +1,10 @@
-#hero{
-    >div{
+#hero {
+    >div {
         height: 520px;
         width: 100%;
-        background-image: linear-gradient(0deg,rgb(0, 0, 0) ,
-            rgba(0, 0, 0, 0.107) ,
-            rgba(0, 0, 0, 0.2)), 
+        background-image: linear-gradient(0deg, rgb(0, 0, 0),
+                rgba(0, 0, 0, 0.107),
+                rgba(0, 0, 0, 0.2)),
             url(../../assets/images/hero0.jpg);
         background-size: cover;
         background-repeat: no-repeat;
@@ -16,26 +16,26 @@
         flex-direction: column;
         justify-content: flex-end;
 
-        h1{
+        h1 {
             font-size: var(--Display);
             font-family: var(--font);
             color: var(--light);
             font-weight: lighter;
         }
 
-        .button{
+        .button {
             width: 250px;
         }
     }
 }
 
-#home2{
+#home2 {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    p{
+
+    p {
         top: 0px;
         position: sticky;
         font-size: var(--PageHeading);
@@ -45,43 +45,48 @@
         text-align: center;
         transition: var(--transition500ms);
     }
-    p.adjust{
+
+    p.adjust {
         top: var(--navHeight) !important;
         transition: var(--transition500ms);
     }
-    >div{
+
+    >div {
         width: 100%;
         display: flex;
         justify-content: space-between;
-        >div{
-            div{
+
+        >div {
+            div {
                 width: 347px;
                 height: 427px;
                 background-size: cover;
                 background-position: center;
             }
-    
-            div:last-child{
-                margin-top:-50%;
+
+            div:last-child {
+                margin-top: -50%;
             }
-            div:first-child{
+
+            div:first-child {
                 margin-left: 50%;
             }
         }
-        >div:last-child{
 
-            div:first-child{
+        >div:last-child {
+
+            div:first-child {
                 margin-left: 0;
             }
-    
-            div:last-child{
+
+            div:last-child {
                 margin-left: -50%;
             }
         }
     }
 }
 
-#home3{
+#home3 {
     margin-top: 40px;
     display: flex;
     flex-direction: row;
@@ -89,7 +94,7 @@
     padding-left: 0;
     padding-right: 0;
 
-    >div{
+    >div {
         height: calc(100vw / 3);
         width: calc(100vw / 3);
         background-size: cover;
@@ -97,21 +102,53 @@
     }
 }
 
-@media only screen and (max-width:480px){
-    #home2{
-        >div{
-            >div{
-                div{
-                    width: 120px;
-                    height: 145px;
+@media only screen and (max-width:1024px) {
+    #home2 {
+        >div {
+            >div {
+                div {
+                    width: 237px !important;
+                    height: 270px !important;
                 }
             }
         }
     }
 
-    #home3{    
+    #home3 {
+        >div {
+            height: calc(100vw / 2.7) !important;
+        }
+    }
+}
+
+@media only screen and (max-width:431px) {
+    #hero{
         >div{
-            height: calc(100vw / 2.5);
+            height: 250px !important;
+            border-radius: 20px !important;
+            padding: 20px !important;
+            gap: 20px !important;
+
+            .button{
+                width: 170px !important;
+            }
+        }
+    }
+    
+    #home2 {
+        >div {
+            >div {
+                div {
+                    width: 120px !important;
+                    height: 145px !important;
+                }
+            }
+        }
+    }
+
+    #home3 {
+        >div {
+            height: calc(100vw / 2.5) !important;
         }
     }
 }

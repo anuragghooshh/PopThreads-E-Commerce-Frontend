@@ -10,3 +10,15 @@
     }
 
 }
+
+@media only screen and (max-width:431px){
+    .spclItems{
+
+        .itemsHolder{
+            display: grid !important;
+            grid-template-columns: repeat(2,1fr) !important;
+            row-gap: 40px !important;
+        }
+    
+    }
+}
