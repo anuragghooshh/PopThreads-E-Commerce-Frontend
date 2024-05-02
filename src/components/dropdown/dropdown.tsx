@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import dropDown from '../../assets/icons/down.svg';
-import dropDownLight from '../../assets/icons/down(Light).svg';
 import './dropdown.scss';
 
 interface DropdownProps {

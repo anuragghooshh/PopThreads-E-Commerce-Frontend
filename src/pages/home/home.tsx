@@ -22,7 +22,6 @@ const Home = () => {
 
   useEffect(()=>{
     setTop(navPos);
-    console.log("top :" + top)
   },[navPos]);
 
   return (

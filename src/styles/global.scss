@@ -82,7 +82,7 @@ h4{
 }
 
 // Tablet
-@media only screen and (max-width:821px){
+@media only screen and (max-width:640px){
     // typography
     :root{
         --Display : 3rem !important;
@@ -100,7 +100,7 @@ h4{
 }
 
 // Mobile
-@media only screen and (max-width:480px){
+@media only screen and (max-width:640px){
     // typography
     :root{
         --Display : 1.5rem !important;
